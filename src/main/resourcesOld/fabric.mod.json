@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "ediblemc",
+  "id": "modid",
   "version": "${version}",
 
-  "name": "EdibleMC",
-  "description": "Adds item \"minecraft\", eat it to crash the game (craftable with 2 dirt or 1 grass block)",
+  "name": "Example Mod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
     "Me!"
   ],
@@ -23,14 +23,14 @@
     ]
   },
   "mixins": [
-    "ediblemc.mixins.json"
+    "modid.mixins.json"
   ],
 
   "depends": {
-    "fabricloader": "*",
+    "fabricloader": ">=0.14.6",
     "fabric": "*",
-    "minecraft": "*",
-    "java": "*"
+    "minecraft": "~1.19",
+    "java": ">=17"
   },
   "suggests": {
     "another-mod": "*"
