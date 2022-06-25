@@ -25,13 +25,17 @@ class MinecraftFoodItem extends Item {
 		super.finishUsing(stack, world, user);
 		if (!world.isClient()) {
 			for (int i = 0; i < 10; i++) {
-				TntEntity customEntity = ((EntityType<TntEntity>) EntityType.get("minecraft:tnt").get())
+				TntEntity currentTnt = ((EntityType<TntEntity>) EntityType.get("minecraft:tnt").get())
 						.create(world);
-				customEntity.updatePosition(user.getX() + (rgn.nextInt(500) - 250) / 100,
+				currentTnt.updatePosition(user.getX() + (rgn.nextInt(500) - 250) / 100,
 						user.getY() + (rgn.nextInt(500) - 250) / 100, user.getZ() + (rgn.nextInt(500) - 350) / 100);
-				customEntity.setFuse(5);
-				world.spawnEntity(customEntity);
+				currentTnt.setFuse(5);
+				world.spawnEntity(currentTnt);
 			}
+			LightningEntity lightning = ((EntityType<LightningEntity>) EntityType.get("minecraft:lightning_bolt").get())
+					.create(world);
+			lightning.updatePosition(user.getX(), user.getY(), user.getZ());
+			world.spawnEntity(lightning);
 		}
 		if (world.isClient()) {
 			ExampleMod.ticksUntilCrash = 10;
